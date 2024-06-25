@@ -1,0 +1,30 @@
+
+<div autocomplete="off" [formGroup]="miForm" class="w-full md:w-12 flex flex-column  justify-content-center gap-3 py-5">
+         <div class="flex flex-wrap justify-content-center  gap-2">
+            <label class="w-6rem py-2">Nombres</label>
+             <input pInputText id="firstName"
+             formControlName="firstName"
+             placeholder = "Nombres de la persona" type="text" class="w-12rem" />
+             <span *ngIf="campoInValido('firstName')" class="form-text text-danger">Debe Ingresar un nombre como mínimo 3 letras</span>
+        </div>
+        <div class="flex flex-wrap justify-content-center  gap-2">
+            <label class="w-6rem py-2">Correo Electrónico</label>
+             <input pInputText id="email"
+             formControlName="email" type="text" class="w-13rem" />
+             <span *ngIf="campoInValido('email')" class="form-text text-danger">Debe Ingresar un correo de electrónico válido</span>
+        </div>
+        <div class="flex flex-wrap justify-content-center  gap-2">
+            <button pButton type="button"
+                label="Agregar"
+                class="p-button-success"
+                icon="pi pi-user-plus"
+                (click)="agregar()">
+            </button>
+            <button pButton type="button"
+                label="Cancelar"
+                class="p-button-secondary"
+                icon="pi pi-sign-out"
+                (click)="salir()">
+            </button>
+         </div>
+    </div>

@@ -1,0 +1,69 @@
+<app-menu></app-menu>
+
+<h2 style="text-align: center;">Mantenimiento de Personas</h2>
+
+<div class="flex flex-column md:flex-row m-7">
+
+ <div class="w-full md:w-4 flex flex-column align-items-center justify-content-center gap-3 py-4">
+    <router-outlet></router-outlet>
+
+ </div>
+
+ <div class="w-full md:w-2">
+        <p-divider layout="vertical" styleClass="hidden md:flex">
+           <button pButton type="button"
+                pTooltip="Clic aquí para crear Nuevo Usuario"
+                [routerLink]="['/persons/add']"
+                class="p-button-primary"
+                icon="pi pi-user-plus">
+            </button>
+        </p-divider>
+        <p-divider layout="horizontal" styleClass="flex md:hidden" [align]="'center'">
+              <button pButton type="button"
+                pTooltip="Clic aquí para Crear Persona"
+                [routerLink]="['/persons/add']"
+                class="p-button-primary"
+                icon="pi pi-user-plus">
+            </button>
+        </p-divider>
+    </div>
+
+
+
+<div class="w-full md:w-6 flex align-items-center justify-content-center py-6">
+    <br>
+
+    <br>
+    <br>
+
+
+    <p-table [value]="persons" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Nombres</th>
+            <th>Correo Electrónico</th>
+            <th></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-person>
+        <tr>
+            <td>{{ person.firstName }}</td>
+            <td>{{ person.email }}</td>
+            <td>
+            <button pButton
+                type="button"
+                class="p-button-secondary"
+                pTooltip="Clic aquí para Editar Persona"
+                icon="pi pi-user-edit"
+                [routerLink]="['/persons',person.id]"
+                >
+            </button>
+            </td>
+        </tr>
+    </ng-template>
+    </p-table>
+
+</div>
+
+</div>
+
